@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptgate"
+version = "0.1.0"
+description = "Regression tests for prompts: YAML test cases, assertions, and CI-friendly exit codes for LLM apps."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Anum Mughal", email = "anummughaltech@gmail.com" }]
+dependencies = ["pyyaml>=6.0"]
+keywords = ["llm", "evals", "prompt-engineering", "testing", "ai-engineering"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development :: Testing",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+promptgate = "promptgate.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.urls]
+Homepage = "https://github.com/anum-codes/promptgate"
+Issues = "https://github.com/anum-codes/promptgate/issues"

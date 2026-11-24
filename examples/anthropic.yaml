@@ -1,0 +1,15 @@
+provider:
+  type: anthropic
+  model: claude-sonnet-5-5
+  max_tokens: 300
+
+prompt: "Summarize in one sentence: {{text}}"
+
+cases:
+  - name: summary is short and on-topic
+    vars:
+      text: "Retrieval-augmented generation grounds a model's answers in documents fetched at query time, reducing hallucinations."
+    assert:
+      - { type: icontains, value: retrieval }
+      - { type: max_chars, value: 300 }
+      - { type: llm_judge, value: "The output is a single sentence that accurately summarizes the input." }

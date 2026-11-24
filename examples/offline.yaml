@@ -1,0 +1,15 @@
+# Runs with no API key; the mock provider returns a fixed reply.
+provider:
+  type: mock
+  reply: '{"sentiment": "positive", "confidence": 0.93}'
+
+prompt: "Classify the sentiment of: {{text}}"
+
+cases:
+  - name: json shape
+    vars: { text: "Great service, will come again." }
+    assert:
+      - { type: json_valid }
+      - { type: json_field, path: sentiment, value: positive }
+      - { type: regex, value: '"confidence":\s*0\.\d+' }
+      - { type: not_contains, value: "as an AI" }
