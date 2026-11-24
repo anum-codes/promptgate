@@ -7,7 +7,7 @@ name = "promptgate"
 version = "0.1.0"
 description = "Regression tests for prompts: YAML test cases, assertions, and CI-friendly exit codes for LLM apps."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Anum Mughal", email = "anummughaltech@gmail.com" }]
 dependencies = ["pyyaml>=6.0"]
